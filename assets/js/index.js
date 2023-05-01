@@ -1,9 +1,12 @@
 // <=================================== CONSTANTES ===================================>
 const encryptButton = document.getElementById('encrypt');
 const decryptButton = document.getElementById('decrypt');
-const inputTextArea = document.getElementById('inputText');
-const resultTextArea = document.getElementById('result');
+const inputTextArea = document.getElementById('input-text');
+const resultTextArea = document.getElementById('result-text');
+const emptyResultTextArea = document.getElementById('initial');
+const fillResultTextArea = document.getElementById('final-result');
 const copyButton = document.getElementById('copy');
+const imageContainer = document.getElementById('animation');
 
 const RULES_ENCRYPT = {
   a: 'ai',
@@ -12,6 +15,9 @@ const RULES_ENCRYPT = {
   o: 'ober',
   u: 'ufat'
 };
+
+emptyResultTextArea.style.display = 'block';
+fillResultTextArea.style.display = 'none';
 // <=================================== CONSTANTES ===================================>
 
 // Función para encriptar el texto que se encuentre en el TextArea de ingreso
@@ -91,17 +97,39 @@ function disableEnableButtons() {
   }
 }
 
+function showImage() {
+  emptyResultTextArea.style.display = 'none';
+  const IMG = document.createElement('img');
+
+  IMG.src = './assets/img/transfer_data.gif';
+  IMG.alt = 'Passing data';
+  imageContainer.appendChild(IMG);
+}
+
+function removeImage() {
+  imageContainer.innerHTML = '';
+}
+
 // <=================================== EVENTOS ===================================>
 encryptButton.addEventListener('click', () => {
   const TEXT = inputTextArea.value;
-  const ENCRYPTED_TEXT = encrypt(TEXT, RULES_ENCRYPT);
-  resultTextArea.value = ENCRYPTED_TEXT;
+  showImage();
+  setTimeout(() => {
+    const ENCRYPTED_TEXT = encrypt(TEXT, RULES_ENCRYPT);
+    resultTextArea.value = ENCRYPTED_TEXT;
+    removeImage();
+    fillResultTextArea.style.display = 'block';
+  }, 3000);
 });
 
 decryptButton.addEventListener('click', () => {
   const TEXT = inputTextArea.value;
-  const DECRYPTED_TEXT = decrypt(TEXT);
-  resultTextArea.value = DECRYPTED_TEXT;
+  showImage();
+  setTimeout(() => {
+    const DECRYPTED_TEXT = decrypt(TEXT);
+    resultTextArea.value = DECRYPTED_TEXT;
+    removeImage();
+  }, 3000);
 });
 
 inputTextArea.addEventListener('keyup', () => {

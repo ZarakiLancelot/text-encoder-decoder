@@ -14,44 +14,41 @@
   <title>Encrypter / Decryptor</title>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>
-        <img src="./assets/img/logo.png" alt="alura logo" id="logo-alura">
-      </h1>
-    </header>
-    <section>
-      <div class="inputs">
-        <h2>Encrypter / Decryptor</h2>
-        <div class="textarea">
-          <textarea name="text" id="inputText" cols="30" rows="10" placeholder="Type your text here..."></textarea>
-          <p>El texto solo puede contener letras minúsculas</p>
-        </div>
-        <div class="buttons">
-          <button id="encrypt">Encrypt</button>
-          <button id="decrypt">Decrypt</button>
-        </div>
+  <header>
+    <h1>
+      <img src="./assets/img/logo-alura.svg" alt="alura logo" id="logo-alura">
+    </h1>
+  </header>
+  <main>
+    <section id="input">
+      <textarea name="text" id="input-text" cols="30" rows="10" placeholder="Type your text here..."></textarea>
+      <p>¡ALERT! You can only put lowercase letters.</p>
+      <div class="buttons">
+        <button id="encrypt">ENCRYPT</button>
+        <button id="decrypt">DECRYPT</button>
       </div>
-      <aside>
-        <div class="result">
-          <h3>Result</h3>
-          <div class="textarea">
-            <textarea name="result" id="result" cols="30" rows="10" placeholder="Result will be shown here..."></textarea>
-          </div>
-          <div class="buttons">
-            <button id="copy">Copy</button>
-          </div>
-        </div>
-      </aside>
     </section>
-    <footer>
-      <p>Edwin Einsen Vásquez Velásquez - 2023</p>
+    <section id="result">
+      <div id="initial">
+        <img src="./assets/img/no-found.gif" alt="not found">
+        <h3>No message or text found</h3>
+        <p>Enter the text that you want to encrypt</p>
+      </div>
+      <div id="animation">
+      </div>
+      <div id="final-result">
+        <textarea name="result" id="result-text" cols="30" rows="10" placeholder="Result will be shown here..." readonly></textarea>
+        <button id="copy">COPY</button>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>Edwin Einsen Vásquez Velásquez - 2023</p>
 
-      <p>
-        <a href="https://www.alura.com.br/" target="_blank" rel="noopener noreferrer">Alura</a>
-      </p>
-    </footer>
-  </div>
+    <p>
+      <a href="https://www.alura.com.br/" target="_blank" rel="noopener noreferrer">Alura</a>
+    </p>
+  </footer>
   <script src="./assets/js/index.js"></script>
 </body>
 </html>
