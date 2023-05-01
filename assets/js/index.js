@@ -116,6 +116,7 @@ encryptButton.addEventListener('click', () => {
   showImage();
   setTimeout(() => {
     const ENCRYPTED_TEXT = encrypt(TEXT, RULES_ENCRYPT);
+    navigator.clipboard.writeText(ENCRYPTED_TEXT);
     resultTextArea.value = ENCRYPTED_TEXT;
     removeImage();
     fillResultTextArea.style.display = 'block';
@@ -127,6 +128,7 @@ decryptButton.addEventListener('click', () => {
   showImage();
   setTimeout(() => {
     const DECRYPTED_TEXT = decrypt(TEXT);
+    navigator.clipboard.writeText(DECRYPTED_TEXT);
     resultTextArea.value = DECRYPTED_TEXT;
     removeImage();
   }, 3000);
