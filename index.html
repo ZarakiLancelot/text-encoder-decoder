@@ -5,9 +5,12 @@
   <meta name="author" content="Edwin Einsen Vásquez Velásquez">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="./assets/img/logo.png">
 
   <link rel="stylesheet" href="./assets/css/normalize.css">
   <link rel="stylesheet" href="./assets/css/style.css">
+
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <title>Encrypter / Decryptor</title>
 </head>
 <body>
@@ -18,19 +21,25 @@
       </h1>
     </header>
     <section>
-      <h2>Encrypter / Decryptor</h2>
-      <div class="textarea">
-        <textarea name="text" id="text" cols="30" rows="10" placeholder="Type your text here..."></textarea>
-      </div>
-      <div class="buttons">
-        <button id="encrypt">Encrypt</button>
-        <button id="decrypt">Decrypt</button>
+      <div class="inputs">
+        <h2>Encrypter / Decryptor</h2>
+        <div class="textarea">
+          <textarea name="text" id="inputText" cols="30" rows="10" placeholder="Type your text here..."></textarea>
+          <p>El texto solo puede contener letras minúsculas</p>
+        </div>
+        <div class="buttons">
+          <button id="encrypt">Encrypt</button>
+          <button id="decrypt">Decrypt</button>
+        </div>
       </div>
       <aside>
         <div class="result">
           <h3>Result</h3>
           <div class="textarea">
             <textarea name="result" id="result" cols="30" rows="10" placeholder="Result will be shown here..."></textarea>
+          </div>
+          <div class="buttons">
+            <button id="copy">Copy</button>
           </div>
         </div>
       </aside>
