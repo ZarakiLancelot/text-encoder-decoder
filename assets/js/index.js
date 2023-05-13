@@ -66,12 +66,12 @@ function decrypt(text) {
 
 // Función para verificar que no existan caracteres no permitidos (mayúsculas, especiales y números)
 function checkText(inputTextArea) {
-  // Expresión regular para permitir solamente letras minúsculas
-  const REGEX = /^[a-z]+$/;
+  // Expresión regular para permitir solamente letras minúsculas y espacios en blanco
+  const REGEX = /^[a-z\s]+$/;
 
   // Se valida si el texto contiene caracteres especiales, de ser así
   // se muestra una alerta, se elimina el texto y por ende no se encripta.
-  if (!REGEX.test(inputTextArea.value)) {
+  if (!REGEX.test(inputTextArea.value) || inputTextArea.value.trim() == '') {
     swal({
       title: 'Error',
       text: 'El texto no debe incluir mayúsculas, caracteres especiales ni números.',
@@ -97,6 +97,7 @@ function disableEnableButtons() {
   }
 }
 
+// Función para mostrar una imagen tipo loader
 function showImage() {
   emptyResultTextArea.style.display = 'none';
   const IMG = document.createElement('img');
